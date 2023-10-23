@@ -1,0 +1,273 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr {
+    border-top: 1px solid #ddd;
+}
+
+th {
+    color: #b4b3c6;
+    padding: 10px;
+    text-align: left;
+    background-color: #fff;
+}
+
+td {
+    padding: 10px;
+    text-align: left;
+}
+.overview {
+    height: 300px;
+    display: flex;
+    gap: 15px;
+}
+.total-user,
+.new-user {
+    padding: 0px 20px;
+    display: flex;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    align-items: flex-start;
+    flex-direction: column;
+}
+.statistics-user {
+    gap: 20px;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+.chart {
+    height: 99%;
+    width: 80%;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.member {
+    gap: 5px;
+    display: flex;
+}
+.add-btn {
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+.search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-group {
+    display: flex;
+    gap: 10px;
+}
+
+.search-section {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    border-radius: 15px;
+    background: #f5f4f7;
+}
+
+.search-section input[type="text"] {
+    height: 30px;
+    width: 150px;
+    border-radius: 15px;
+    background: #f5f4f7;
+    border: none;
+}
+
+.search input::placeholder {
+    padding: 5px;
+    color: #bdbdbd;
+    font-size: 14px;
+}
+
+.fa-solid {
+    color: #9555ff;
+}
+
+.custom-checkbox input[type="checkbox"] {
+    border: 2px solid red;
+}
+
+.user-container {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    margin-top: 40px;
+    background: #fff;
+    border-radius: 15px;
+}
+button[type="button"] {
+    cursor: pointer;
+    background: #fff;
+    border: none;
+}
+
+button[type="submit"] {
+    cursor: pointer;
+    border-radius: 15px;
+    border: none;
+}
+
+.export-user-btn {
+    padding: 10px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background: #9555ff;
+    color: #fff;
+    cursor: pointer;
+}
+.actions {
+    display: flex;
+    justify-content: center;
+}
+.preview img {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 20%;
+}
+.account-information {
+    display: flex;
+    flex-direction: column;
+}
+.action-buttons {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+.action-buttons button {
+    cursor: pointer;
+    border: none;
+    background-color: #fff;
+}
+.action-buttons img {
+    width: 18px;
+    height: 18px;
+}
+
+/* CRUD */
+/*popup*/
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+.popup-overlay-edit {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.popup-content {
+    width: 350px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content h2 {
+    margin-bottom: 10px;
+}
+
+.popup-content form {
+    display: grid;
+    gap: 10px;
+}
+
+.popup-content input[type="text"],
+.popup-content select {
+    border: 1px solid #e6eae9;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.popup-content input[type="text"]::placeholder {
+    font-size: 15px;
+    margin: 5px 10px;
+}
+
+.popup-content input[type="text"]:hover {
+    border-color: #121927;
+}
+.popup-content input[type="password"] {
+    border: 1px solid #e6eae9;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.popup-content .close-overlay-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #333;
+}
+
+.save-button {
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    background: #9555ff;
+}
+
+.close-overlay-button {
+    background: #fff;
+    border: none;
+}
+
+.header-manage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#add-member-btn {
+    padding: 10px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background: #9555ff;
+    color: #fff;
+    cursor: pointer;
+}
+.addForm input[type="text"] {
+    border: 1px solid #e6eae9;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+#add-btn-save {
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    background: #9555ff;
+}
+/* lineChart */
+canvas {
+    display: block;
+    height: 300px;
+    width: 860px;
+}

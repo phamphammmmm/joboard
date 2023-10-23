@@ -1,0 +1,70 @@
+body {
+    background: rgb(255, 255, 255);
+    padding: 100px 40px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.login {
+    box-shadow: -2px 1px 12px 4px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    width: 80%;
+    border-radius: 10px;
+    background: white;
+    display: flex;
+    gap: 10px;
+}
+.login-image {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 50%;
+    background-image: url("/storage/logo/pexels-google-deepmind-18069230.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.login-form {
+    width: 55%;
+}
+
+h2,
+p {
+    padding: 0 20%;
+}
+a {
+    text-decoration: none;
+    color: #7aa901;
+}
+/* form */
+form {
+    padding: 0 20% 5%;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.form-row {
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+input[type="email"],
+input[type="password"] {
+    width: 95%;
+    border: 2px solid #dfe4e9;
+    padding: 10px;
+    border-radius: 5px;
+}
+input[type="submit"] {
+    width: 104%;
+    color: white;
+    background: #7aa901;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+.google-login {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}

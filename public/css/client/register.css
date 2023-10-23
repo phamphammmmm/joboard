@@ -1,0 +1,73 @@
+body {
+    background: rgb(255, 255, 255);
+    padding: 65px 40px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.signup {
+    box-shadow: -2px 1px 12px 4px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    width: 80%;
+    border-radius: 10px;
+    background: white;
+    display: flex;
+    gap: 10px;
+}
+.signIn-image {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    width: 50%;
+    background-image: url("/storage/logo/pexels-google-deepmind-18069230.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.signup-classic {
+    width: 55%;
+}
+h2 {
+    padding: 0 20%;
+}
+/* form */
+form {
+    padding: 0 20% 5%;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.group-form {
+    display: flex;
+}
+.form-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 95%;
+    border: 2px solid #dfe4e9;
+    padding: 10px;
+    border-radius: 5px;
+}
+input[type="submit"] {
+    width: 104%;
+    color: white;
+    background: #7aa901;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+input[type="file"] {
+    width: 95%;
+    border: 2px solid #dfe4e9;
+    padding: 10px;
+    border-radius: 5px;
+}
+select {
+    border: 2px solid #dfe4e9;
+    border-radius: 5px;
+    padding: 5px 12px;
+}

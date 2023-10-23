@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,700;1,800;1,900&family=Quicksand:wght@300;400&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap");
+body {
+    margin: 0 auto;
+    font-family: "Poppins", sans-serif;
+}
+a {
+    text-decoration: none;
+}
+.header a {
+    color: black;
+}
+ul {
+    list-style-type: none;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+}
+.header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    margin-bottom: 40px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+}
+.logo img {
+    height: 40px;
+    width: 55px;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.main-title ul {
+    font-size: 15px;
+    display: flex;
+}
+.notify ul {
+    padding-right: 25px;
+    color: #a6a6a6;
+    font-size: 20px;
+}
+
+.content {
+    margin-top: 6%;
+}
+#avatar-container {
+    position: relative;
+}
+
+#avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+#popup {
+    position: absolute;
+    top: 100%;
+    left: -55px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    display: none;
+    z-index: 1;
+    width: 80px;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#popup a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    padding: 5px 0;
+}
+
+#avatar-container:hover #popup {
+    display: block;
+}
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logout-btn {
+    border: none;
+    background: #fff;
+}
+.notification-badge {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    position: relative;
+    top: -10px;
+    right: -10px;
+    font-size: 12px;
+}
+.popup-notification {
+    padding: 20px;
+    display: none;
+    position: fixed;
+    top: -10%;
+    left: 66%;
+    height: 500px;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+}
+
+#popup-notification-content {
+    overflow-y: scroll;
+    max-height: 300px;
+    background: #fff;
+    border-radius: 10px;
+    max-width: 350px;
+    width: 100%;
+    color: black;
+}
+
+.popup-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.notification-list {
+    display: flex;
+    flex-direction: column;
+}

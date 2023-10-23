@@ -1,0 +1,45 @@
+h3,
+p {
+    margin: 0;
+}
+.feedback-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.feedback-item {
+    gap: 10px;
+    display: flex;
+    border-radius: 10px;
+    padding: 20px;
+    background: #fff;
+    max-width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+}
+.star {
+    font-size: 24px;
+    cursor: pointer;
+    color: orange;
+}
+.user {
+    display: flex;
+    justify-content: space-between;
+}
+.rating {
+    display: flex;
+    align-items: center;
+}
+#delete-feedback-btn {
+    display: flex;
+    border: none;
+    background-color: white;
+    font-size: 20px;
+}
+.comment {
+    color: #333333;
+}
+.time {
+    display: flex;
+    justify-content: space-between;
+}

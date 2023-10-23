@@ -1,0 +1,100 @@
+h1,
+h2,
+h3,
+span,
+pre {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+.container {
+    gap: 10px;
+    padding: 20px;
+    margin: 0 auto;
+    display: flex;
+    background-color: #f4f2ee;
+}
+.col-8 {
+    display: flex;
+    gap: 10px;
+    width: 140%;
+    flex-direction: column;
+}
+.cover-image {
+    height: 200px;
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.avatar {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    position: relative;
+    top: -130px;
+    left: 0px;
+}
+.information-overall {
+    padding: 20px;
+}
+.information {
+    margin-top: -100px;
+}
+.preview {
+    min-height: 200px;
+    max-height: 600px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 1px 1px 4px rgb(0 0 0 / 15%);
+}
+.description,
+.activity,
+.skill,
+.education {
+    padding: 20px;
+    min-height: 100px;
+    max-height: 300px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 1px 1px 4px rgb(0 0 0 / 15%);
+}
+.description span {
+    word-wrap: break-word;
+}
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+}
+.edit-profile-btn {
+    border: none;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.edit-profile-btn img {
+    width: 18px;
+    height: 18px;
+}
+.col-4 {
+    display: flex;
+    gap: 10px;
+    width: 40%;
+    flex-direction: column;
+}
+
+.setting {
+    border-radius: 10px;
+    background: #fff;
+    height: 200px;
+    box-shadow: 1px 1px 4px rgb(0 0 0 / 15%);
+}
+.col-4 img {
+    height: 300px;
+    border-radius: 10px;
+}
+.col-4 .friend {
+    min-height: 250px;
+    max-height: 350px;
+    border-radius: 10px;
+}

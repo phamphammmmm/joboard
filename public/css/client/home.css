@@ -1,0 +1,82 @@
+h1,
+h4,
+h5,
+p {
+    margin: 5px;
+}
+.home-page {
+    padding: 20px 80px;
+    display: flex;
+}
+.home-content {
+    gap: 10px;
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+}
+.home-content h1 {
+    font-size: 40px;
+}
+.home-content h1,
+p {
+    width: 400px;
+    word-wrap: break-word;
+}
+.home-image {
+    gap: 15px;
+    display: flex;
+    width: 50%;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.home-image .col {
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.home-image img {
+    box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.1);
+}
+
+.navigate-btn {
+    border-radius: 15px;
+    width: 75%;
+    display: flex;
+    box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.1);
+}
+.job-title {
+    margin-left: 5px;
+}
+.job-title,
+.location,
+.get-started {
+    width: 33.3%;
+}
+.job-title p,
+.location p {
+    font-size: 10px;
+}
+.get-started {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.get-started-btn {
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 15px;
+    color: #fff;
+    background: #009b4c;
+    border: none;
+}
+.get-started-btn a {
+    color: #fff;
+}
+.company-image {
+    display: flex;
+    gap: 10%;
+}
+.company {
+    margin-top: 15%;
+}

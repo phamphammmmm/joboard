@@ -1,0 +1,64 @@
+.company-title {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.scrolling-text {
+    display: inline-block;
+    width: 100%;
+    overflow: auto;
+}
+/* company */
+.list-company {
+    padding: 80px 160px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+.item {
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    box-shadow: 1px 1px 4px rgb(0 0 0 / 15%);
+    gap: 15px;
+    align-items: center;
+    width: 48%;
+    box-sizing: border-box;
+    padding: 20px 15px;
+    justify-content: space-around;
+}
+.item img {
+    box-shadow: 1px 1px 4px rgb(0 0 0 / 15%);
+    border: 10px solid #fff;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+}
+
+.company {
+    flex-grow: 1; /* Cân bằng khoảng trống giữa hình ảnh và nội dung */
+}
+
+.company h4,
+.company p {
+    margin: 0; /* Loại bỏ margin mặc định */
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Canh phải các nút và chữ thời gian */
+}
+.description p {
+    font-size: 14px;
+}
+.vacancies {
+    cursor: pointer;
+    color: #358f5a;
+    background: #ebfff4;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 16px;
+}
