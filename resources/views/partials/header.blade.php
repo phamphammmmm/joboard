@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="{{ route('chat')}}">
                         <ion-icon name="mail-outline"></ion-icon>
                     </a>
                 </li>

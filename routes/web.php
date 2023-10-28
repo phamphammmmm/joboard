@@ -18,8 +18,6 @@ use App\Http\Controllers\ChatController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/chat', [ChatController::class, 'index']);
-Route::post('/chat/send-message', [ChatController::class, 'sendMessage']);
 
 Route::get('/', function () {
     if (Auth::check()) {
@@ -131,3 +129,5 @@ Route::post('/application/create', [ApplicationController::class, 'create'])->na
 
 Route::get('auth/google', [LoginController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [LoginController::class, 'handleGoogleCallback']);
+
+Route::get('/chat/{id?}', [ChatController::class, 'chat'])->name('chat');
