@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    @extends('layout')
+    @extends('layout.layout')
     @section('title', 'Trang chủ')
     @section('content')
     <div class="container">
@@ -22,53 +22,44 @@
                 <img src="{{asset('storage/avatar/cover-image.jpg')}}" alt="cover-image" class="cover-image">
                 <div class="information-overall">
                     <img src="{{ $user->path }}" alt="Avatar" class="avatar">
-                    <div class="information">
-                        <h3>{{$user->name}}</h3>
-                        <div class="birthday">Birthday: {{$user->birthday}}</div>
-                        <div class="email">Email: {{$user->email}}</div>
-                        <div>Address: {{$user->address}}</div>
-                        <div class="social_netwwork"></div>
+                    <div class="overall-information">
+                        <div class="information">
+                            <h3>{{$user->name}}</h3>
+                            <div class="birthday">Birthday: {{$user->birthday}}</div>
+                            <div class="email">Email: {{$user->email}}</div>
+                            <div class="address">Address: {{$user->location}}</div>
+                            <div class="social_netwwork"></div>
+                        </div>
+                        <button id="edit-profile-btn" data-id="{{$user->id}}">
+                            <img src="{{asset('storage/logo/draw.png')}}" alt="edit">
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="description">
                 <div class="profile-header">
                     <h3>Description</h3>
-                    <button class="edit-profile-btn" data-id="{{$user->id}}">
-                        <img src="{{asset('storage/logo/draw.png')}}" alt="edit">
-                    </button>
                 </div>
-                <span>Overall, I had a positive experience using your job board website, and I will certainly
-                    continue to explore the opportunities it offers. Thank you for providing a platform that
-                    facilitates the job search process effectively.One area for potential improvement could be in
-                    the notification system for new job postings or updates. Implementing an email or notification
-                    feature could keep users informed about relevant opportunities in real-time, enhancing
-                    engagement and user satisfaction.
+                <span>
+                    {{$user->description}}
                 </span>
             </div>
             <div class="education">
                 <div class="profile-header">
                     <h3>University</h3>
-                    <button class="edit-profile-btn" data-id="{{$user->id}}">
-                        <img src="{{asset('storage/logo/draw.png')}}" alt="edit">
-                    </button>
+
                 </div>
                 <span>PTIT</span>
             </div>
             <div class="activity">
                 <div class="profile-header">
                     <h3>Activity</h3>
-                    <button class="edit-profile-btn" data-id="{{$user->id}}">
-                        <img src="{{asset('storage/logo/draw.png')}}" alt="edit">
-                    </button>
+
                 </div>
             </div>
             <div class="skill">
                 <div class="profile-header">
                     <h3>Skills</h3>
-                    <button class="edit-profile-btn" data-id="{{$user->id}}">
-                        <img src="{{asset('storage/logo/draw.png')}}" alt="edit">
-                    </button>
                 </div>
                 <span>{{$user->major}}</span>
             </div>
@@ -76,13 +67,44 @@
         </div>
         <div class="col-4">
             <div class="setting">
-
             </div>
             <img src="{{asset('storage/logo/preview.png')}}" alt="preview">
         </div>
     </div>
+
+    <div class="popup-overlay" id="Edit-Profile-Popup">
+        <div class="popup-content">
+            <h3>Add Information</h3>
+            <form id="Edit-Profile-Form" method="POST" action="{{ route('manage.edit') }}"
+                enctype="multipart/form-data">
+                @csrf
+                @method('POST')
+                <input type="hidden" name="editUserId" value="" id="editUserId">
+
+                <label for="name">Username:</label>
+                <input type="text" name="name" id="editName">
+
+                <label for="fullname">Fullname:</label>
+                <input type="text" name="fullname" id="editFullname">
+
+                <label for="email">Email*</label>
+                <input type="text" name="email" id="editEmail" placeholder="Email">
+
+                <label for="description">Desciption*</label>
+                <textarea type="text" name="description" id="editDescription" placeholder="description"></textarea>
+
+                <label for="location">Address*</label>
+                <input type="text" name="location" id="editLocation" placeholder="address">
+
+                <label for="major">Major:</label>
+                <input type="text" name="major" id="editMajor">
+
+                <button type="submit" class="save-button">Save</button>
+            </form>
+        </div>
+    </div>
     @endsection
-    <script src="{{ asset('js/profile.js') }}"></script>
+    <script src="{{ asset('js/client/profile.js') }}"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    @extends('layout')
+    @extends('layout.layout')
     @section('title', 'Trang chủ')
     @section('content')
     <h1>Top Feedback</h1>

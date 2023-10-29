@@ -116,10 +116,44 @@ class ManageController extends Controller
             $user->email = $email; 
             $user->fullname= $fullname;
             $user->save();
-
-            UserHelper::attachRecruiterPermissions($editUserId);
             
             return redirect()->route('manage')->with('success', 'User added successfully!!');
+        } else {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+    }
+
+    public function edit(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|regex:/^\S*$/u|max:255', 
+            'editUserId'=>'required',
+            'fullname' => 'required',
+            'location' => 'required',  
+            'description'=>'required',
+            'major' => 'required',          
+            'email' => 'required',
+        ]);
+        $fullname = $request->input('fullname');
+        $name = $request->input('name');
+        $description = $request->input('description');
+        $location = $request->input('location');
+        $email = $request->input('email');
+        $major = $request->input('major');
+        $editUserId = $request->input('editUserId');
+
+        $user = User::findOrFail($editUserId);
+        
+        if ($user) {
+            $user->name = $name;
+            $user->major= $major;
+            $user->description= $description;
+            $user->location= $location;
+            $user->email = $email; 
+            $user->fullname= $fullname;
+            $user->save();
+            
+            return redirect()->route('profile')->with('success', 'User added successfully!!');
         } else {
             return response()->json(['message' => 'User not found'], 404);
         }

@@ -1,0 +1,43 @@
+/* header */
+.header-title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.time {
+    gap: 5px;
+    display: flex;
+    align-items: center;
+}
+.time img {
+    height: 15px;
+    width: 15px;
+}
+.add-job-btn {
+    margin: 0 auto;
+    width: 10%;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    background: #9555ff;
+    color: #fff;
+}
+.overview {
+    display: flex;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    height: 100px;
+    justify-content: space-between;
+}
+
+/* overall */
+.efficiency {
+    border-right: 2px solid black;
+    gap: 10px;
+    display: flex;
+    align-items: flex-start;
+}
+.efficiency img {
+    width: 15px;
+    height: 15px;
+}

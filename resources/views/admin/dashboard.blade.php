@@ -29,9 +29,6 @@
             </div>
             <ul>
                 <li class="navbar-link">
-                    <a href="{{ route('job.show') }}"><img src="{{asset('storage/logo/home.png')}}" alt="home"></a>
-                </li>
-                <li class="navbar-link">
                     <a href="{{ route('category.show') }}"><img src="{{asset('storage/logo/category.png')}}"
                             alt="category"></a>
                 </li>

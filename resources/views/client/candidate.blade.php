@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    @extends('layout')
+    @extends('layout.layout')
     @section('title','Trang chủ')
     @section('content')
     <div class="candidate-title">

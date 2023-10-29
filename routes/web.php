@@ -9,6 +9,7 @@ use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\RecruiterController;
 use App\Http\Controllers\ManageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CompanyController;
@@ -78,9 +79,15 @@ Route::get('/company', [CompanyController::class, 'view'])->name('company');
 Route::get('/favorite', [FavoriteController::class, 'view'])->name('favorite');
 Route::get('/candidate', [CandidateController::class, 'view'])->name('candidate');
 Route::get('/feedback', [FeedbackController::class, 'view'])->name('feedback');
+Route::post('/manage/edit', [ManageController::class,'edit'])->name('manage.edit');
 
+//Recuiter
+Route::get('/recruiter', [RecruiterController::class, 'view'])->name('recruiter');
+Route::post('/job/create', [JobController::class, 'create'])->name('job.create');
+Route::get('/recruiter/oversee', [RecruiterController::class, 'oversee'])->name('recruiter.oversee');
+
+//Admin
 Route::get('/dashboard', [DashboardController::class, 'view'])->name('dashboard');
-
 Route::get('/manage', [ManageController::class,'index'])->name('manage');
 Route::get('/manage/search', [ManageController::class, 'search'])->name('manage.search');
 Route::post('/manage/create', [ManageController::class, 'create'])->name('manage.create');
@@ -114,7 +121,6 @@ Route::delete('/feedback/delete/{id}', [FeedbackController::class, 'delete'])->n
 
 Route::get('/job/show', [JobController::class, 'show'])->name('job.show');
 Route::get('/job/search', [JobController::class,'search'])->name('job.search');
-Route::post('/job/create', [JobController::class, 'create'])->name('job.create');
 
 Route::post('pusher/send-message', [pusherController::class,'sendMessage'])->name('pusher.sendmessage');
 

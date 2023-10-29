@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Job;
 use App\Models\Tag;
 use App\Models\Company;
+use App\Models\User;
 use App\Models\category;
 
 class JobController extends Controller
@@ -17,12 +18,14 @@ class JobController extends Controller
 
     public function show()
     {
-        $job = Job::orderBy('created_at', 'asc')->get();
         $companies = Company::all();
         $categories = Category::all();
         $tags = Tag::all();
-        return view('admin.job', [
-            'job' => $job,
+
+        $user = auth()->user();
+        $jobs = $user->jobs;
+        return view('recruiter.job', [
+            'jobs' => $jobs,
             'companies'=>$companies,
             'categories'=>$categories,
             'tags'=>$tags
