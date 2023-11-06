@@ -31,7 +31,11 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            return redirect('/home');
+            if (Auth::user()->type === 'admin' || Auth::user()->type === 'moderator') {
+                return redirect('/dashboard'); 
+            } else {
+                return redirect('/home'); 
+            }
         } else {
             return redirect()->back()->withErrors(['login' => 'Invalid credentials']);
         }

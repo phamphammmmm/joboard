@@ -43,18 +43,27 @@
                     $avatarPath = $user->path ? asset($user->path) : asset('storage/avatar/avatar.jpg');
                     @endphp
                     <img src="{{ $avatarPath }}" alt="Avatar" id="avatar">
-                    @endif
                     <div id="popup" class="hidden">
                         <a href="{{ route('profile') }}">View Profile</a>
-                        <a href="{{route('favorite')}}">
+                        <a href="{{ route('favorite') }}">
                             <ion-icon name="bookmark-outline"></ion-icon>Save
                         </a>
                         <form action="{{ route('logout') }}" method="POST" style="display:flex;">
                             @csrf
-                            <button type="submit" class="logout-btn">Logout
-                            </button>
+                            <button type="submit" class="logout-btn">Logout</button>
                         </form>
+                        @if ($user->type === 'admin' || $user->type === 'moderator')
+                        <button style="border: none; width: 15px; background: none;">
+                            <a href="{{ route('dashboard') }}">Dashboard</a>
+                        </button>
+                        @endif
+                        @if ($user->type === 'recruiter')
+                        <button style="border: none; width: 15px; background: none;">
+                            <a href="{{ route('recruiter') }}">Recruiter</a>
+                        </button>
+                        @endif
                     </div>
+                    @endif
                 </li>
             </ul>
         </div>

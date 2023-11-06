@@ -49,6 +49,10 @@
                             alt="review"></a>
                 </li>
                 <li class="navbar-link">
+                    <a href="{{ route('home')}}"><img src="{{ asset('storage/logo/speech-bubble.png') }}"
+                            alt="review"></a>
+                </li>
+                <li class="navbar-link">
                     <a href="{{ route('manage') }}"><img src="{{asset('storage/logo/user (1).png')}}" alt="user"></a>
                 </li>
                 <li>
