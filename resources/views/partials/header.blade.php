@@ -32,8 +32,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
-                        <ion-icon name="mail-outline"></ion-icon>
+                    <a href="{{ route('favorite') }}">
+                        <ion-icon name="bookmark-outline"></ion-icon>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('profile') }}">
+                        <ion-icon name="person-outline"></ion-icon>
                     </a>
                 </li>
                 <li id="avatar-container">
@@ -44,14 +49,6 @@
                     @endphp
                     <img src="{{ $avatarPath }}" alt="Avatar" id="avatar">
                     <div id="popup" class="hidden">
-                        <a href="{{ route('profile') }}">View Profile</a>
-                        <a href="{{ route('favorite') }}">
-                            <ion-icon name="bookmark-outline"></ion-icon>Save
-                        </a>
-                        <form action="{{ route('logout') }}" method="POST" style="display:flex;">
-                            @csrf
-                            <button type="submit" class="logout-btn">Logout</button>
-                        </form>
                         @if ($user->type === 'admin' || $user->type === 'moderator')
                         <button style="border: none; width: 15px; background: none;">
                             <a href="{{ route('dashboard') }}">Dashboard</a>
@@ -62,6 +59,10 @@
                             <a href="{{ route('recruiter') }}">Recruiter</a>
                         </button>
                         @endif
+                        <form action="{{ route('logout') }}" method="POST" style="display:flex;">
+                            @csrf
+                            <button type="submit" class="logout-btn">Logout</button>
+                        </form>
                     </div>
                     @endif
                 </li>

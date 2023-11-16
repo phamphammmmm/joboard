@@ -16,7 +16,7 @@
     @section('content')
     <div class="header">
         <h1>Feedback Page</h1>
-        <button class="add-feedback-btn" id="addFeedbackBtn">+ add feedback </button>
+        <!-- <button class="add-feedback-btn" id="addFeedbackBtn">+ add feedback </button> -->
     </div>
     <div class="container">
         <div class="overview-stats">
@@ -128,7 +128,7 @@
     </div>
 
     <!-- add feedback -->
-    <div class="popup-overlay" id="addFeedbackPopup">
+    <!-- <div class="popup-overlay" id="addFeedbackPopup">
         <div class="popup-content">
             <h3>Add Feedback</h3>
             <form id="addFeedbackForm" method="POST" action="{{ route('feedback.create') }}">
@@ -153,7 +153,7 @@
                 <button type="submit" id="submit-feedback-btn">Submit</button>
             </form>
         </div>
-    </div>
+    </div> -->
     <script src="{{asset('js/admin/feedback.js')}}"></script>
     @endsection
 </body>

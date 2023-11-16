@@ -2,36 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use DB;
+use Auth;
+use App\Models\User;
+use App\Models\Chat;
 use GuzzleHttp\Client;
+use Illuminate\View\View;
+use Illuminate\Http\Request;
 
 class ChatController extends Controller
 {
-    public function index()
-    {
-        return view('chat');
-    }
-
-    public function sendMessage(Request $request)
-    {
-        $userMessage = $request->input('message');
-
-        // Gửi yêu cầu API đến OpenAI
-        $client = new Client();
-        $response = $client->post('https://api.openai.com/v1/engines/davinci/completions', [
-            'headers' => [
-                'Authorization' => 'Bearer ' . env('OPENAI_API_KEY'),
-                'Content-Type' => 'application/json',
-            ],
-            'json' => [
-                'prompt' => $userMessage,
-                'max_tokens' => 150,
-            ],
-        ]);
-
-        $responseBody = json_decode($response->getBody(), true);
-        $aiResponse = $responseBody['choices'][0]['text'];
-
-        return response()->json(['message' => $aiResponse]);
+    public function chat(REQUEST $request, $id = NULL){
+        $messages = [];
+        $otherUser = NULL;
+        $user_id = Auth::id(); // id nguoi dang nhap
+        if($id){
+            $otherUser = User::findOrFail($id);
+            $group_id = (Auth::id()>$id)?Auth::id().$id:$id.Auth::id();
+            $messages = Chat::where('group_id', $group_id)->get()->toArray();
+            Chat::where(['user_id'=>$id, 'other_user_id'=>$user_id, 'is_read'=>0])->update(['is_read'=>1]);
+        }
+        $friends = User::where('id', '!=', Auth:: id())->select('*', DB::raw("(SELECT count(id) from chats 
+        where chats.other_user_id=$user_id and chats.user_id = users.id and is_read = 0) as unread_messages"))->get()->toArray();
+        // dd($user_id);
+        return view('client.chat', compact('friends', 'messages', 'otherUser', 'id'));
     }
 }

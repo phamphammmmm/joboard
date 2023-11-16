@@ -13,8 +13,6 @@ use App\Notifications\NewApplicationNotification;
 
 class ApplicationController extends Controller
 {
-    
-
     public function create(Request $request)
     {
         $request->validate([

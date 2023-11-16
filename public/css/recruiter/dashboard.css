@@ -16,7 +16,6 @@ body {
 /*-----left_sidebar------*/
 .left_sidebar {
     border-bottom-right-radius: 15px;
-    margin-top: -20px;
     width: 7%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     background: #fff;
@@ -26,6 +25,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
 }
 
 .left_sidebar ul {
@@ -39,7 +39,7 @@ body {
 
 li {
     align-items: center;
-    padding: 15px 33px;
+    padding: 15px 30px;
 }
 
 li:hover {
@@ -134,7 +134,9 @@ a {
     border: none;
     background: #fff;
 }
-
+.logo img {
+    width: 30px;
+}
 .dropdown-menu {
     display: none;
     position: absolute;

@@ -19,8 +19,6 @@ use App\Http\Controllers\ChatController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/chat', [ChatController::class, 'index']);
-Route::post('/chat/send-message', [ChatController::class, 'sendMessage']);
 
 Route::get('/', function () {
     if (Auth::check()) {
@@ -57,9 +55,9 @@ Route::middleware('web')->group(function () {
 
 Route::post('/register', [RegisterController::class, 'register']);
 Route::get('/login', [LoginController::class, 'showLoginForm']);
-
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/chat/{id}', [ChatController::class, 'chat'])->name('chat');
 
 Route::get('/home', function () {
     if (Auth::check()) {
@@ -76,18 +74,36 @@ Route::middleware(['checklogin'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
     Route::get('/category', [CategoryController::class, 'view'])->name('category');
     Route::get('/company', [CompanyController::class, 'view'])->name('company');
+    Route::get('/company/display', [CompanyController::class, 'display'])->name('company.display');
     Route::get('/favorite', [FavoriteController::class, 'view'])->name('favorite');
     Route::get('/candidate', [CandidateController::class, 'view'])->name('candidate');
     Route::get('/feedback', [FeedbackController::class, 'view'])->name('feedback');
     Route::post('/manage/edit', [ManageController::class,'edit'])->name('manage.edit');
+    
+    Route::get('/application/show', [ApplicationController::class, 'show'])->name('application.show');
+    Route::get('/application/export', [ApplicationController::class,'export'])->name('application.export');
+    Route::post('/application/create', [ApplicationController::class, 'create'])->name('application.create');
+
+    Route::get('/favorite/show', [FavoriteController::class, 'show'])->name('favorite.show');
+    Route::post('/favorite/create', [FavoriteController::class, 'create'])->name('favorite.create');
+    Route::get('/favorite/showAll', [FavoriteController::class, 'showAll'])->name('favorite.showAll');
+    Route::delete('/favorite/delete/{id}', [FavoriteController::class, 'delete'])->name('favorite.delete');
 });
 
 //Recuiter
 Route::middleware(['checklogin','checkrecruiter'])->group(function () {
-    Route::get('/recruiter', [RecruiterController::class, 'view'])->name('recruiter');
-    Route::post('/job/create', [JobController::class, 'create'])->name('job.create');
     Route::get('/job/show', [JobController::class, 'show'])->name('job.show');
+    Route::post('/job/create', [JobController::class, 'create'])->name('job.create');
+    Route::delete('/job/delete/{id}', [JobController::class,'delete'])->name('job.delete');
+
+    Route::get('/recruiter', [RecruiterController::class, 'view'])->name('recruiter');
+    Route::get('/recruiter/payment', [RecruiterController::class, 'payment'])->name('recruiter.payment');
     Route::get('/recruiter/oversee', [RecruiterController::class, 'oversee'])->name('recruiter.oversee');
+    Route::get('/recruiter/notifications', [ApplicationController::class, 'notifications'])->name('recruiter.notifications');
+    Route::get('/recruiter/applicants/{id}', [ApplicationController::class, 'applicantDetail'])->name('recruiter.applicantDetail');
+    Route::get('/recruiter/applicant/show', [RecruiterController::class, 'show'])->name('recruiter.applicant');
+    Route::post('/recruiter/applicant/delete/{id}', [RecruiterController::class, 'delete'])->name('recruiter.delete');
+
 });
 
 //Admin
@@ -101,7 +117,6 @@ Route::middleware(['checklogin','checkadmin'])->group(function () {
     Route::delete('/manage/delete/{id}', [ManageController::class, 'delete'])->name('manage.delete');
 
     Route::get('/company/show',[CompanyController::class,'show'])->name('company.show');
-    Route::get('/company/display', [CompanyController::class, 'display'])->name('company.display');
     Route::get('/company/export', [CompanyController::class,'export'])->name('company.export');
     Route::get('/company/search', [CompanyController::class,'search'])->name('company.search');
     Route::post('/company/create',[CompanyController::class,'create'])->name('company.create');
@@ -123,21 +138,7 @@ Route::middleware(['checklogin','checkadmin'])->group(function () {
     Route::get('/feedback/display', [FeedbackController::class, 'display'])->name('feedback.display');
     Route::get('/feedback/showAll', [FeedbackController::class, 'showAll'])->name('feedback.showAll');
     Route::delete('/feedback/delete/{id}', [FeedbackController::class, 'delete'])->name('feedback.delete');
-
-    Route::get('/job/search', [JobController::class,'search'])->name('job.search');
-
     Route::post('pusher/send-message', [pusherController::class,'sendMessage'])->name('pusher.sendmessage');
-
-    Route::get('/favorite/show', [FavoriteController::class, 'show'])->name('favorite.show');
-    Route::post('/favorite/create', [FavoriteController::class, 'create'])->name('favorite.create');
-    Route::get('/favorite/showAll', [FavoriteController::class, 'showAll'])->name('favorite.showAll');
-    Route::delete('/favorite/delete/{id}', [FavoriteController::class, 'delete'])->name('favorite.delete');
-
-    Route::get('/application/show', [ApplicationController::class, 'show'])->name('application.show');
-    Route::get('/recruiter/notifications', [ApplicationController::class, 'notifications'])->name('recruiter.notifications');
-    Route::get('/recruiter/applicants/{applicationId}', [ApplicationController::class, 'applicantDetail'])->name('recruiter.applicantDetail');
-    Route::get('/application/export', [ApplicationController::class,'export'])->name('application.export');
-    Route::post('/application/create', [ApplicationController::class, 'create'])->name('application.create');
 });
 Route::get('auth/google', [LoginController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [LoginController::class, 'handleGoogleCallback']);

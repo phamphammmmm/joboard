@@ -13,40 +13,47 @@
     @section('content')
     <div class="filter">
         <form id="feedbackFilterForm" action="{{route('feedback.search')}}" method="GET">
-            @erfc
+            @csrf
             <div class="form-group">
-                <label for="name">User</label>
-                <input type="text" class="form-control" id="name" name="name">
+                <div class="form-col">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter user...">
+                </div>
+                <div class="form-col">
+                    <select class="form-control" id="dateRange" name="dateRange">
+                        <option value="" disabled selected>Week</option>
+                        <option value="7">1 week</option>
+                        <option value="14">2 weeks</option>
+                        <option value="30">1 month</option>
+                        <option value="60">2 month</option>
+                        <option value="90">3 month</option>
+                    </select>
+                </div>
+                <div class="form-col">
+                    <select class="form-control" id="rating" name="rating">
+                        <option value="" disabled selected>Rating</option>
+                        <option value="1">1 &#9733</option>
+                        <option value="2">2 &#9733</option>
+                        <option value="3">3 &#9733</option>
+                        <option value="4">4 &#9733</option>
+                        <option value="5">5 &#9733</option>
+                    </select>
+                </div>
+                <div class="form-col">
+                    <select class="form-control" id="sortOrder" name="sortOrder">
+                        <option value="" disabled selected>Sort</option>
+                        <option value="asc">asc</option>
+                        <option value="desc">desc</option>
+                    </select>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="dateRange">Time</label>
-                <select class="form-control" id="dateRange" name="dateRange">
-                    <option value="7">1 week</option>
-                    <option value="14">2 weeks</option>
-                    <option value="30">1 month</option>
-                    <option value="60">2 month</option>
-                    <option value="90">3 month</option>
-                </select>
+            <div class="active-btn-primary">
+                <button type="submit" class="search-btn-primary">
+                    <ion-icon name="search-outline"></ion-icon>
+                </button>
+                <button type="button" id="show-all-button">
+                    <ion-icon name="refresh-outline"></ion-icon>
+                </button>
             </div>
-            <div class="form-group">
-                <label for="rating">Rating</label>
-                <select class="form-control" id="rating" name="rating">
-                    <option value="1">1 &#9733</option>
-                    <option value="2">2 &#9733</option>
-                    <option value="3">3 &#9733</option>
-                    <option value="4">4 &#9733</option>
-                    <option value="5">5 &#9733</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="sortOrder">Sort</label>
-                <select class="form-control" id="sortOrder" name="sortOrder">
-                    <option value="asc">asc</option>
-                    <option value="desc">desc</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Lọc</button>
-            <button type="button" id="show-all-button"><i class="fa-solid fa-rotate-right"></i></button>
         </form>
     </div>
 
@@ -67,9 +74,9 @@
                     </form>
                 </div>
             </div>
-            <div class="comment">
+            <p class="comment" style="text-align: justify;">
                 {{ $feedback->comment }}
-            </div>
+            </p>
             <div class="time">
                 <p class="created_at">
                     {{ \Carbon\Carbon::parse($feedback->created_at)->format('d M Y') }}

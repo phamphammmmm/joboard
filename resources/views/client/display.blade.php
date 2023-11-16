@@ -12,6 +12,7 @@
     @extends('layout.layout')
     @section('content')
     <div class="container">
+        @if(count($jobs) > 0)
         <ul class="favorite-data">
             @foreach($jobs as $job)
             <li>
@@ -35,7 +36,11 @@
             </li>
             @endforeach
         </ul>
+        @else
+        <p>No favourite job is at here</p>
+        @endif
     </div>
+
 
     <div class="popup-overlay" id="addApplicationPopup">
         <div class="popup-content">
@@ -44,7 +49,7 @@
                 enctype="multipart/form-data">
                 @csrf
                 @method('POST')
-                <input type="hidden" name="job_id_input" id="job_id_input" value="{{$job->id}}">
+                <input type="hidden" name="job_id_input" id="job_id_input" value="">
 
                 <div class="form-row">
                     <label for="cv">Enter your CV:</label>

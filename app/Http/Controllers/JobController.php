@@ -16,19 +16,47 @@ class JobController extends Controller
         return view('client.job', ['job' => $job]);
     }
 
-    public function show()
+    public function show(Request $request)
     {
         $companies = Company::all();
         $categories = Category::all();
         $tags = Tag::all();
 
-        $user = auth()->user();
-        $jobs = $user->jobs;
+        $recruiterId = auth()->id();
+        $jobs = Job::where('user_id', $recruiterId)->get();
+        
+        $query = Job::query(); 
+
+        $category_id = $request->input('category_id');
+        if ($category_id) {
+            $query->where('category_id', $category_id);
+        }
+
+        $sortOrder = $request->input('sortOrder');
+        if ($sortOrder) {
+            if ($sortOrder === 'asc') {
+                $query->orderBy('created_at', 'asc');
+            } elseif ($sortOrder === 'desc') {
+                $query->orderBy('created_at', 'desc');
+            }
+        }
+
+        $dateRange = $request->input('dateRange');
+        if ($dateRange) {
+            $startDate = now()->subDays($dateRange)->toDateString();
+            $endDate = now()->toDateString();
+            $query->whereBetween('created_at', [$startDate, $endDate]);
+        }
+
+        $results = $query->get();
+        
+
         return view('recruiter.job', [
             'jobs' => $jobs,
             'companies'=>$companies,
             'categories'=>$categories,
-            'tags'=>$tags
+            'tags'=>$tags,
+            'results' => $results,
         ]);
     }
 
@@ -67,8 +95,7 @@ class JobController extends Controller
         
         return redirect()->route('job.show')->with('success', 'Job added successfully!!');
     }
-    
- 
+
     public function getJobData()
     {
         $jobs = Job::with(['company', 'category', 'user', 'tag'])->get();

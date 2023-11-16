@@ -1,13 +1,20 @@
+.header {
+    margin: 5px 0px 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 .job {
     display: flex;
     gap: 15px;
     flex-direction: column;
 }
 .job li {
+    background: #fff;
     list-style-type: none;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
+    padding: 15px 30px;
 }
 .job img {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -15,7 +22,23 @@
     height: 70px;
     border-radius: 10px;
 }
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+}
+.action-buttons img {
+    width: 20px;
+    height: 20px;
+}
+.action-buttons button {
+    display: flex;
+    background: #fff;
+    border: none;
+}
+
 .job-overall {
+    margin: 1rem 0;
     display: flex;
     justify-content: space-between;
 }
@@ -66,9 +89,27 @@
     max-width: 550px;
     width: 100%;
 }
-form {
-    margin: 0 auto;
-    width: 500px;
+#feedbackFilterForm {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+#feedbackFilterForm select,
+input[type="text"] {
+    height: 37px;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+#show-all-button,
+.search-btn-primary,
+.add-job-btn {
+    padding: 5px 10px;
+    border: none;
+    background: #9555ff;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 /* Style cho tiêu đề của popup */
 .popup-title {
@@ -119,12 +160,6 @@ form {
 
 .btn:hover {
     background-color: #0056b3;
-}
-
-/* Style cho option trong select */
-select.form-control {
-    width: 100%;
-    padding: 10px;
 }
 
 /* gmail */

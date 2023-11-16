@@ -15,29 +15,39 @@
 <body>
     <div class="navbar">
         <div class="left_sidebar">
+            <div class="logo">
+                <img src="{{asset('storage/logo/dashboard.png')}}" alt="logo">
+            </div>
             <ul>
-                <li class="logo">
-                    <img src="{{asset('storage/logo/logo.png')}}" alt="logo">
-                </li>
                 <li class="navbar-link">
-                    <a href="{{ route('recruiter.oversee') }}"><img src="{{asset('storage/logo/home.png')}}"
+                    <a href="{{ route('recruiter.oversee') }}"><img src="{{asset('storage/logo/growth.png')}}"
                             alt="home"></a>
                 </li>
                 <li class="navbar-link">
-                    <a href="{{ route('job.show') }}"><img src="{{asset('storage/logo/dashboard.png')}}"
+                    <a href="{{ route('job.show') }}"><img src="{{asset('storage/logo/information.png')}}"
                             alt="category"></a>
                 </li>
                 <li class="navbar-link">
-                    <a href="{{ route('company.show') }}"><img src="{{ asset('storage/logo/approved.png') }}"
+                    <a href="{{ route('recruiter.applicant') }}"><img src="{{ asset('storage/logo/user (1).png') }}"
                             alt="group-chat"></a>
                 </li>
-                <li>
-                    <button id="dark-mode-toggle">
-                        <ion-icon name="invert-mode-outline"></ion-icon>
-                    </button>
+                <li class="navbar-link">
+                    <a href="{{ route('recruiter.applicant') }}"><img src="{{ asset('storage/logo/mail.png') }}"
+                            alt="group-chat"></a>
+                </li>
+                <li class="navbar-link">
+                    <a href="{{ route('home') }}"><img src="{{ asset('storage/logo/left-arrow.png') }}"
+                            alt="group-chat"></a>
+                </li>
+                <li class="navbar-link">
+                    <img src="{{ asset('storage/logo/dark-mode.png') }}" alt="mode">
+                </li>
+                <li class="navbar-link">
+                    <a href="{{route('recruiter.payment')}}">
+                        <img src="{{ asset('storage/logo/dark-mode.png') }}" alt="mode">
+                    </a>
                 </li>
             </ul>
-            <div id="spacing" style="height:20%;"> </div>
             <div class="logout">
                 <form action="{{ route('logout') }}" method="POST" style="display:flex;">
                     @csrf
@@ -53,21 +63,9 @@
                 @yield('content')
             </div>
         </div>
-        <!-- <div class="right-sidebar">
-            <div class="infomation">
-                <div class="avatar">
-                    <img src="{{ Auth::user()->path }}" alt="Avatar">
-                    <div class="active-indicator"></div>
-                </div>
-                <div class="user-info">
-                    <h3>{{ Auth::user()->name }}</h3>
-                    <p>{{ Auth::user()->industry }}</p>
-                </div>
-            </div>
-        </div> -->
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{{ asset('js/recuiter/dashboard.js') }}"></script>
+    <script src="{{ asset('js/recruiter/recruiter.js') }}"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

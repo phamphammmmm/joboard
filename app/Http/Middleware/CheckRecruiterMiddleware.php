@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use App\Http\Controllers\RecruiterController;
 use Symfony\Component\HttpFoundation\Response;
 
 class CheckRecruiterMiddleware

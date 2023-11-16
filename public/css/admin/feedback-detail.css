@@ -2,6 +2,39 @@ h3,
 p {
     margin: 0;
 }
+#feedbackFilterForm {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 20px 0px;
+}
+input[type="text"] {
+    width: 128px;
+}
+.form-col input[type="text"],
+select {
+    border-radius: 5px;
+    border: none;
+    height: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.search-btn-primary,
+#show-all-button {
+    height: 30px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    background: #9555ff;
+    color: #fff;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 .feedback-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
